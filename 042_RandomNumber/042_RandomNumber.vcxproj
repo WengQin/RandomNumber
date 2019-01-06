@@ -205,6 +205,16 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\042_RandomNumber.ico" />
+    <Image Include="res\Number_001.ico" />
+    <Image Include="res\Number_002.ico" />
+    <Image Include="res\Number_003.ico" />
+    <Image Include="res\Number_004.ico" />
+    <Image Include="res\Number_005.ico" />
+    <Image Include="res\Number_006.ico" />
+    <Image Include="res\Number_007.ico" />
+    <Image Include="res\Number_008.ico" />
+    <Image Include="res\Number_009.ico" />
+    <Image Include="res\Number_010.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

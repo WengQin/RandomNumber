@@ -59,5 +59,35 @@
     <Image Include="res\042_RandomNumber.ico">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="res\Number_010.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_001.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_002.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_003.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_004.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_005.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_006.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_007.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_008.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Number_009.ico">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>
