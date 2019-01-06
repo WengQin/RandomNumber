@@ -10,6 +10,7 @@ class CMy042_RandomNumberDlg : public CDialog
 {
 // 构造
 public:
+	HICON hicon;
 	CMy042_RandomNumberDlg(CWnd* pParent = NULL);	// 标准构造函数
 
 // 对话框数据

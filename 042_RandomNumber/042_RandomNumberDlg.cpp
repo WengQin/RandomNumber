@@ -52,6 +52,7 @@ END_MESSAGE_MAP()
 CMy042_RandomNumberDlg::CMy042_RandomNumberDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(IDD_MY042_RANDOMNUMBER_DIALOG, pParent)
 {
+	srand(time(NULL));
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -99,7 +100,10 @@ BOOL CMy042_RandomNumberDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-
+	SetWindowPos(&wndTop, 100, 100, 700, 300, SWP_SHOWWINDOW);
+	GetDlgItem(IDC_BUTTON1)->SetWindowPos(NULL, 50, 50, 100, 30, SWP_NOZORDER);
+	GetDlgItem(IDC_BUTTON2)->SetWindowPos(NULL, 200, 50, 100, 30, SWP_NOZORDER);
+	GetDlgItem(IDC_BUTTON3)->SetWindowPos(NULL, 550, 50, 100, 30, SWP_NOZORDER);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
