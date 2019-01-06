@@ -59,12 +59,14 @@ CMy042_RandomNumberDlg::CMy042_RandomNumberDlg(CWnd* pParent /*=NULL*/)
 void CMy042_RandomNumberDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_STATIC_X, tuX);
 }
 
 BEGIN_MESSAGE_MAP(CMy042_RandomNumberDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CMy042_RandomNumberDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -156,3 +158,15 @@ HCURSOR CMy042_RandomNumberDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMy042_RandomNumberDlg::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	GetDlgItem(IDC_STATIC_X)->SetWindowPos(NULL, 84, 100, 32, 32, SWP_NOZORDER);
+	GetDlgItem(IDC_STATIC_X)->ShowWindow(true);
+
+	HICON hicon = AfxGetApp()->LoadIcon(129+rand()%10);
+	tuX.SetIcon(hicon);
+
+}
