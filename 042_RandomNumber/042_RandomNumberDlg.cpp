@@ -60,6 +60,11 @@ void CMy042_RandomNumberDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_STATIC_X, tuX);
+	for (int i = 0; i < 10; i++)
+	{
+		DDX_Control(pDX, 1004+i, tu[i]);
+	}
+	
 }
 
 BEGIN_MESSAGE_MAP(CMy042_RandomNumberDlg, CDialog)
@@ -67,6 +72,8 @@ BEGIN_MESSAGE_MAP(CMy042_RandomNumberDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CMy042_RandomNumberDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMy042_RandomNumberDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMy042_RandomNumberDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -169,4 +176,50 @@ void CMy042_RandomNumberDlg::OnBnClickedButton1()
 	HICON hicon = AfxGetApp()->LoadIcon(129+rand()%10);
 	tuX.SetIcon(hicon);
 
+}
+
+
+void CMy042_RandomNumberDlg::OnBnClickedButton2()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	const int N = 10;//数组最大范围
+	int Array[N];
+	int i, j;
+	bool flag = false;
+
+	for (i = 0; i<N; i++)
+	{
+		Array[i] = rand() % N;//N范围内任意整数，即0-N
+		//检查有没有重复赋值，即检查在Array[i]之前的所有数组值是否和新赋值的Array[i]相等
+		for (j = 0; j<i; j++)
+		{
+			//Array[i]为新值，Array[j]为旧值
+			while (Array[j] == Array[i])
+			{
+				//相等：flag=true；重新赋值
+				flag = true;
+				Array[i] = rand() % N;
+			}
+			if (flag == true)
+			{
+				j = -1;//j++后j=0，即从Array[0]重新循环判断
+				flag = false;
+			}
+		}
+	}
+
+	for (i = 0; i<N; i++)	//IDC_STATIC0-IDC_STATIC9控件显示
+	{
+		GetDlgItem(1004 + i)->ShowWindow(true);
+		//横排显示，间隔为32,图像大小为32*32，即紧凑排列
+		GetDlgItem(1004 + i)->SetWindowPos(NULL, 200 + 32 * i, 100, 32, 32, SWP_NOZORDER);
+		hicon = AfxGetApp()->LoadIcon(129 + Array[i]);
+		tu[i].SetIcon(hicon);
+	}
+}
+
+
+void CMy042_RandomNumberDlg::OnBnClickedButton3()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

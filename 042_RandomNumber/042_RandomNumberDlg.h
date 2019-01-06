@@ -36,4 +36,7 @@ protected:
 public:
 	afx_msg void OnBnClickedButton1();
 	CStatic tuX;
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
+	CStatic tu[10];
 };
