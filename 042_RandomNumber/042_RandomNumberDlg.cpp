@@ -182,6 +182,7 @@ void CMy042_RandomNumberDlg::OnBnClickedButton1()
 void CMy042_RandomNumberDlg::OnBnClickedButton2()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	GetDlgItem(IDC_STATIC_X)->ShowWindow(false);
 	const int N = 10;//数组最大范围
 	int Array[N];
 	int i, j;
@@ -222,4 +223,42 @@ void CMy042_RandomNumberDlg::OnBnClickedButton2()
 void CMy042_RandomNumberDlg::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	const int N = 9;//数组最大范围
+	int Array[N];
+	int i, j;
+	bool flag = false;
+
+	for (i = 0; i<N; i++)
+	{
+		Array[i] = rand() % N + 1;//N范围内任意整数，即0-N
+							  //检查有没有重复赋值，即检查在Array[i]之前的所有数组值是否和新赋值的Array[i]相等
+		for (j = 0; j<i; j++)
+		{
+			//Array[i]为新值，Array[j]为旧值
+			while (Array[j] == Array[i])
+			{
+				//相等：flag=true；重新赋值
+				flag = true;
+				Array[i] = rand() % N + 1;
+			}
+			if (flag == true)
+			{
+				j = -1;//j++后j=0，即从Array[0]重新循环判断
+				flag = false;
+			}
+		}
+	}
+	//多余控件不显示，大小位置随意
+	GetDlgItem(1004 + 9)->ShowWindow(false);
+	GetDlgItem(IDC_STATIC_X)->ShowWindow(false);
+	GetDlgItem(1004 + 9)->SetWindowPos(NULL, 0, 0, 0, 0, SWP_NOZORDER | SWP_NOMOVE | SWP_NOSIZE);
+
+	for (i = 0; i<N; i++)	//IDC_STATIC0-IDC_STATIC9控件显示
+	{
+		GetDlgItem(1004 + i)->ShowWindow(true); 
+		//横排显示，间隔为32,图像大小为32*32，即紧凑排列
+		GetDlgItem(1004 + i)->SetWindowPos(NULL, 550 + 32 * (i%3), 100+32*(i/3), 32, 32, SWP_NOZORDER);
+		hicon = AfxGetApp()->LoadIcon(129 + Array[i]);
+		tu[i].SetIcon(hicon);
+	}
 }
